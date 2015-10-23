@@ -1,0 +1,84 @@
+From e8b6881b68d2e3d5d7fc7ec47392cc40dcf3af40 Mon Sep 17 00:00:00 2001
+From: Fabio Mello <fabio.mello@intel.com>
+Date: Tue, 14 Apr 2015 19:17:44 -0300
+Subject: i2c: designware: use enable on resume instead initialization
+
+According to documentation and tests, initialization is not
+necessary on module resume, since the controller keeps its state
+between disable/enable. Change the target address is also allowed.
+
+So, this patch replaces the initialization on module resume with a
+simple enable, and removes the (non required anymore) enables and
+disables.
+
+Signed-off-by: Fabio Mello <fabio.mello@intel.com>
+Signed-off-by: Lucas De Marchi <lucas.demarchi@intel.com>
+
+diff --git a/drivers/i2c/busses/i2c-designware-core.c b/drivers/i2c/busses/i2c-designware-core.c
+index 6f19a33..5ae3b3b 100644
+--- a/drivers/i2c/busses/i2c-designware-core.c
++++ b/drivers/i2c/busses/i2c-designware-core.c
+@@ -375,8 +375,12 @@ int i2c_dw_init(struct dw_i2c_dev *dev)
+ 	/* configure the i2c master */
+ 	dw_writel(dev, dev->master_cfg , DW_IC_CON);
+ 
++	/* Enable the adapter */
++	__i2c_dw_enable(dev, true);
++
+ 	if (dev->release_lock)
+ 		dev->release_lock(dev);
++
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(i2c_dw_init);
+@@ -405,9 +409,6 @@ static void i2c_dw_xfer_init(struct dw_i2c_dev *dev)
+ 	struct i2c_msg *msgs = dev->msgs;
+ 	u32 ic_con, ic_tar = 0;
+ 
+-	/* Disable the adapter */
+-	__i2c_dw_enable(dev, false);
+-
+ 	/* if the slave address is ten bit address, enable 10BITADDR */
+ 	ic_con = dw_readl(dev, DW_IC_CON);
+ 	if (msgs[dev->msg_write_idx].flags & I2C_M_TEN) {
+@@ -434,9 +435,6 @@ static void i2c_dw_xfer_init(struct dw_i2c_dev *dev)
+ 	/* enforce disabled interrupts (due to HW issues) */
+ 	i2c_dw_disable_int(dev);
+ 
+-	/* Enable the adapter */
+-	__i2c_dw_enable(dev, true);
+-
+ 	/* Clear and enable interrupts */
+ 	i2c_dw_clear_int(dev);
+ 	dw_writel(dev, DW_IC_INTR_DEFAULT_MASK, DW_IC_INTR_MASK);
+@@ -664,15 +662,6 @@ i2c_dw_xfer(struct i2c_adapter *adap, struct i2c_msg msgs[], int num)
+ 		goto done;
+ 	}
+ 
+-	/*
+-	 * We must disable the adapter before unlocking the &dev->lock mutex
+-	 * below. Otherwise the hardware might continue generating interrupts
+-	 * which in turn causes a race condition with the following transfer.
+-	 * Needs some more investigation if the additional interrupts are
+-	 * a hardware bug or this driver doesn't handle them correctly yet.
+-	 */
+-	__i2c_dw_enable(dev, false);
+-
+ 	if (dev->msg_err) {
+ 		ret = dev->msg_err;
+ 		goto done;
+diff --git a/drivers/i2c/busses/i2c-designware-platdrv.c b/drivers/i2c/busses/i2c-designware-platdrv.c
+index 0a80e4a..92c75eb 100644
+--- a/drivers/i2c/busses/i2c-designware-platdrv.c
++++ b/drivers/i2c/busses/i2c-designware-platdrv.c
+@@ -318,7 +318,7 @@ static int dw_i2c_resume(struct device *dev)
+ 	clk_prepare_enable(i_dev->clk);
+ 
+ 	if (!i_dev->pm_runtime_disabled)
+-		i2c_dw_init(i_dev);
++		i2c_dw_enable(i_dev);
+ 
+ 	return 0;
+ }
+-- 
+cgit v0.10.2
