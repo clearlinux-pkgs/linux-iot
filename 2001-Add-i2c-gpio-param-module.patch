@@ -34,7 +34,7 @@ index 0000000..274237f
 +# Makefile for i2c-gpio-param module
 +#
 +
-+obj-y				+= i2c-gpio-param.o
++obj-m				+= i2c-gpio-param.o
 diff --git a/drivers/i2c/i2c-gpio-param/i2c-gpio-param.c b/drivers/i2c/i2c-gpio-param/i2c-gpio-param.c
 new file mode 100644
 index 0000000..7db626f
