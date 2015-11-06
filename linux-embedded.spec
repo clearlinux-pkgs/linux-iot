@@ -38,15 +38,15 @@ BuildRequires:  lz4
 %define debug_package %{nil}
 %define __strip /bin/true
 
-Patch1:  0001-Don-t-wait-for-PS-2-at-boot.patch
-Patch2:  0002-tweak-the-scheduler-to-favor-CPU-0.patch
-Patch3:  0003-Silence-kvm-unhandled-rdmsr.patch
-Patch4:  0004-intel-idle.patch
-Patch5:  0005-i8042-Decrease-debug-message-level-to-info.patch
-Patch6:  0006-Tweak-Intel-idle.patch
-Patch7:  0007-raid6-boottime.patch
-Patch8:  0008-reduce-the-damage-from-intel_pt-by-bailing-out-on-cp.patch
-Patch9:  0009-reduce-minimal-ack-time-down-from-40-msec.patch
+Patch1:  0001-init-don-t-wait-for-PS-2-at-boot.patch
+Patch2:  0002-sched-tweak-the-scheduler-to-favor-CPU-0.patch
+Patch3:  0003-kvm-silence-kvm-unhandled-rdmsr.patch
+Patch4:  0004-intel_idle-tweak-HSW-cpuidle-cstates.patch
+Patch5:  0005-intel_idle-tweak-BDW-cpuidle-cstates.patch
+Patch6:  0006-i8042-decrease-debug-message-level-to-info.patch
+Patch7:  0007-raid6-reduce-boot-time.patch
+Patch8:  0008-cpu-reduce-the-damage-from-intel_pt-by-bailing-out-o.patch
+Patch9:  0009-net-tcp-reduce-minimal-ack-time-down-from-40-msec.patch
 
 # low speed spidev module
 Patch20: 2000-Add-low-speed-spidev-module.patch
@@ -58,8 +58,7 @@ Patch21: 2001-Add-i2c-gpio-param-module.patch
 #Patch22: 2002-i2c-enable-resume-instead-init.patch
 
 # kdbus
-Patch701: 701-kdbus.patch
-
+Patch701: 7001-kdbus-enable-module-as-a-built-in.patch
 
 
 %description
@@ -177,5 +176,3 @@ ln -s org.clearlinux.embedded.%{version}-%{release} %{buildroot}/usr/lib/kernel/
 %files extra
 %dir /usr/lib/kernel
 /usr/lib/kernel/System.map-%{kversion}
-
-

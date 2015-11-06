@@ -1,12 +1,12 @@
-From 70307b67d08c0eb0e63fa4885eacaf1d269dd233 Mon Sep 17 00:00:00 2001
+From 44d8b52adffe87bb86686206b58a09d2bdc16b2c Mon Sep 17 00:00:00 2001
 From: Arjan van de Ven <arjan@linux.intel.com>
 Date: Thu, 20 Aug 2015 20:22:14 +0000
-Subject: [PATCH 7/9] raid6 boottime
+Subject: [PATCH 07/12] raid6: reduce boot time
 
-the raid6 calibration takes > 200 milliseconds...
+The raid6 calibration takes > 200 milliseconds ...
 even when we're not using raid6.
 
-while we're working on a better upstream solution,
+While we're working on a better upstream solution,
 mitigate some of the damage
 
 Author:    Arjan van de Ven <arjan@linux.intel.com>
@@ -33,5 +33,5 @@ index 975c6e0..eec9f05 100644
  	&raid6_avx2x4,
  #endif
 -- 
-2.5.0
+2.4.3
 
