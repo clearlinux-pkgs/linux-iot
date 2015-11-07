@@ -79,7 +79,7 @@ Linux kernel extra files
 
 
 %prep
-%setup -q -n linux-4.3.0
+%setup -q -n linux-4.3
 
 %patch1 -p1
 %patch2 -p1
