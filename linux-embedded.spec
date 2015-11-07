@@ -19,7 +19,7 @@ BuildRequires:  elfutils
 BuildRequires:  elfutils-dev
 BuildRequires:  kmod
 BuildRequires:  make >= 3.78
-BuildRequires:  openssl
+BuildRequires:  openssl-dev
 BuildRequires:  flex bison
 BuildRequires:  ncurses-dev
 BuildRequires:  binutils-dev
