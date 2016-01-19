@@ -1,6 +1,6 @@
 Name:           linux-embedded
 Version:        4.3.0
-Release:        5
+Release:        6
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
