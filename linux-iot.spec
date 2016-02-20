@@ -1,4 +1,4 @@
-Name:           linux-embedded
+Name:           linux-iot
 Version:        4.3.0
 Release:        6
 License:        GPL-2.0
@@ -9,7 +9,7 @@ Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.3.tar.xz
 Source1:        config
 Source2:        cmdline
 
-%define kversion %{version}-%{release}.embedded
+%define kversion %{version}-%{release}.iot
 
 BuildRequires:  bash >= 2.03
 BuildRequires:  bc
@@ -68,7 +68,7 @@ Patch701: 7001-kdbus-enable-module-as-a-built-in.patch
 Patch9001: cve-2016-0728.patch
 
 %description
-The Linux kernel for embedded cases.
+The Linux kernel for iot cases.
 
 
 %package extra
@@ -119,7 +119,7 @@ BuildKernel() {
     MakeTarget=$1
 
     Arch=x86_64
-    ExtraVer="-%{release}".embedded
+    ExtraVer="-%{release}".iot
 
     perl -p -i -e "s/^EXTRAVERSION.*/EXTRAVERSION = ${ExtraVer}/" Makefile
 
@@ -146,8 +146,8 @@ InstallKernel() {
     install -m 644 .config    ${KernelDir}/config-${KernelVer}
     install -m 644 System.map ${KernelDir}/System.map-${KernelVer}
     install -m 644 %{SOURCE2} ${KernelDir}/cmdline-${KernelVer}
-    cp  $KernelImage ${KernelDir}/org.clearlinux.embedded.%{version}-%{release}
-    chmod 755 ${KernelDir}/org.clearlinux.embedded.%{version}-%{release}
+    cp  $KernelImage ${KernelDir}/org.clearlinux.iot.%{version}-%{release}
+    chmod 755 ${KernelDir}/org.clearlinux.iot.%{version}-%{release}
 
     mkdir -p %{buildroot}/usr/lib/modules/$KernelVer
     make -s ARCH=$Arch INSTALL_MOD_PATH=%{buildroot}/usr modules_install KERNELRELEASE=$KernelVer
@@ -173,15 +173,15 @@ rm -f %{buildroot}/usr/lib/modules/%{kversion}/modules.*.bin
 # Recreate modules indices
 depmod -a -b %{buildroot}/usr %{kversion}
 
-ln -s org.clearlinux.embedded.%{version}-%{release} %{buildroot}/usr/lib/kernel/default-embedded
+ln -s org.clearlinux.iot.%{version}-%{release} %{buildroot}/usr/lib/kernel/default-iot
 
 %files
 %dir /usr/lib/kernel
 %dir /usr/lib/modules/%{kversion}
 /usr/lib/kernel/config-%{kversion}
 /usr/lib/kernel/cmdline-%{kversion}
-/usr/lib/kernel/org.clearlinux.embedded.%{version}-%{release}
-/usr/lib/kernel/default-embedded
+/usr/lib/kernel/org.clearlinux.iot.%{version}-%{release}
+/usr/lib/kernel/default-iot
 /usr/lib/modules/%{kversion}/kernel
 /usr/lib/modules/%{kversion}/modules.*
 
