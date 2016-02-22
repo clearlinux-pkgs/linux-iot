@@ -40,12 +40,11 @@ Patch4:  0004-intel_idle-tweak-HSW-cpuidle-cstates.patch
 Patch5:  0005-intel_idle-tweak-BDW-cpuidle-cstates.patch
 Patch6:  0006-i8042-decrease-debug-message-level-to-info.patch
 Patch7:  0007-raid6-reduce-boot-time.patch
-Patch8:  0008-cpu-reduce-the-damage-from-intel_pt-by-bailing-out-o.patch
-Patch9:  0009-net-tcp-reduce-minimal-ack-time-down-from-40-msec.patch
+Patch8:  0008-net-tcp-reduce-minimal-ack-time-down-from-40-msec.patch
 
-Patch10: 0010-cpuidle-x86-increase-forced-cut-off-for-polling-to-2.patch
-Patch11: 0011-cpuidle-menu-use-interactivity_req-to-disable-pollin.patch
-Patch12: 0012-cpuidle-menu-smooth-out-measured_us-calculation.patch
+Patch9:  0009-cpuidle-x86-increase-forced-cut-off-for-polling-to-2.patch
+Patch10: 0010-cpuidle-menu-use-interactivity_req-to-disable-pollin.patch
+Patch11: 0011-cpuidle-menu-smooth-out-measured_us-calculation.patch
 
 # low speed spidev module
 Patch20: 2000-Add-low-speed-spidev-module.patch
@@ -80,11 +79,10 @@ Linux kernel extra files
 %patch6 -p1
 %patch7 -p1
 %patch8 -p1
-%patch9 -p1
 
+%patch9 -p1
 %patch10 -p1
 %patch11 -p1
-%patch12 -p1
 
 # low speed spidev module
 %patch20 -p1

@@ -1,7 +1,7 @@
-From c7a2c114d8b2cc0c5f4c420fab2a820dabec95c8 Mon Sep 17 00:00:00 2001
+From de19f469702f19399f4dedee4c3de1d9e6d64bf8 Mon Sep 17 00:00:00 2001
 From: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
 Date: Tue, 20 Oct 2015 12:08:09 -0500
-Subject: [PATCH] Add i2c gpio param module
+Subject: [PATCH 2001/2001] Add i2c gpio param module
 
 Signed-off-by: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
 ---
@@ -13,10 +13,10 @@ Signed-off-by: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
  create mode 100644 drivers/i2c/i2c-gpio-param/i2c-gpio-param.c
 
 diff --git a/drivers/Makefile b/drivers/Makefile
-index b64b49f..c6575ec 100644
+index a7a2af7..5966550 100644
 --- a/drivers/Makefile
 +++ b/drivers/Makefile
-@@ -101,6 +101,7 @@ obj-$(CONFIG_GAMEPORT)		+= input/gameport/
+@@ -104,6 +104,7 @@ obj-$(CONFIG_GAMEPORT)		+= input/gameport/
  obj-$(CONFIG_INPUT)		+= input/
  obj-$(CONFIG_RTC_LIB)		+= rtc/
  obj-y				+= i2c/ media/
@@ -26,7 +26,7 @@ index b64b49f..c6575ec 100644
  obj-$(CONFIG_W1)		+= w1/
 diff --git a/drivers/i2c/i2c-gpio-param/Makefile b/drivers/i2c/i2c-gpio-param/Makefile
 new file mode 100644
-index 0000000..274237f
+index 0000000..3186ba2
 --- /dev/null
 +++ b/drivers/i2c/i2c-gpio-param/Makefile
 @@ -0,0 +1,5 @@
@@ -274,5 +274,5 @@ index 0000000..7db626f
 +MODULE_DESCRIPTION("I2C-GPIO Driver");
 +MODULE_VERSION("0.3");
 -- 
-2.6.1.120.g24a00ef
+2.4.3
 
