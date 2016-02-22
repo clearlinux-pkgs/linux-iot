@@ -61,9 +61,6 @@ Patch21: 2001-Add-i2c-gpio-param-module.patch
 # i2c enable on resume instead initialization
 #Patch22: 2002-i2c-enable-resume-instead-init.patch
 
-# Security
-Patch9001: cve-2016-0728.patch
-
 %description
 The Linux kernel for iot cases.
 
@@ -102,9 +99,6 @@ Linux kernel extra files
 
 # i2c enable on resume instead initialization
 #%patch22 -p1
-
-# Security
-%patch9001 -p1
 
 cp %{SOURCE1} .
 
