@@ -20,13 +20,8 @@ BuildRequires:  elfutils-dev
 BuildRequires:  kmod
 BuildRequires:  make >= 3.78
 BuildRequires:  openssl-dev
-BuildRequires:  flex bison
-BuildRequires:  ncurses-dev
-BuildRequires:  binutils-dev
-BuildRequires:  slang-dev
-BuildRequires:  libunwind-dev
-BuildRequires:  python-dev
-BuildRequires:  zlib-dev
+BuildRequires:  flex
+BuildRequires:  bison
 
 # don't srip .ko files!
 %global __os_install_post %{nil}
