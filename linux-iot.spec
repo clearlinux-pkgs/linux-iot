@@ -44,7 +44,7 @@ Patch20: 2000-Add-low-speed-spidev-module.patch
 Patch21: 2001-Add-i2c-gpio-param-module.patch
 
 # i2c enable on resume instead initialization
-Patch22: 2002-i2c-enable-resume-instead-init.patch
+#Patch22: 2002-i2c-enable-resume-instead-init.patch
 
 # enable RealSense on uvc
 Patch70:  7000-Script-for-building-uvcvideo.ko.patch
@@ -81,7 +81,7 @@ Linux kernel extra files
 %patch21 -p1
 
 # i2c enable on resume instead initialization
-%patch22 -p1
+#%patch22 -p1
 
 # enable RealSense on uvc
 %patch70 -p1
