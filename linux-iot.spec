@@ -46,6 +46,17 @@ Patch21: 2001-Add-i2c-gpio-param-module.patch
 # i2c designware do not disable adapter after transfer
 Patch22: 2002-i2c-designware-do-not-disable-adapter-after-transfer.patch
 
+# cpuidle's governors set
+Patch30: 3000-cpuidle-x86-increase-forced-cut-off-for-polling-to-2.patch
+Patch31: 3001-cpuidle-menu-use-interactivity_req-to-disable-pollin.patch
+Patch32: 3002-cpuidle-menu-smooth-out-measured_us-calculation.patch
+Patch33: 3003-cpuidle-menu-Fix-menu_select-for-CPUIDLE_DRIVER_STAT.patch
+Patch34: 3004-cpuidle-menu-Avoid-pointless-checks-in-menu_select.patch
+Patch35: 3005-cpuidle-menu-avoid-expensive-square-root-computation.patch
+Patch36: 3006-cpuidle-menu-help-gcc-generate-slightly-better-code.patch
+Patch37: 3007-cpuidle-menu-use-high-confidence-factors-only-when-c.patch
+Patch38: 3008-cpuidle-menu-Fall-back-to-polling-if-next-timer-even.patch
+
 # enable RealSense on uvc
 Patch70:  7000-Script-for-building-uvcvideo.ko.patch
 
@@ -82,6 +93,16 @@ Linux kernel extra files
 
 # i2c designware do not disable adapter after transfer
 %patch22 -p1
+
+%patch30 -p1
+%patch31 -p1
+%patch32 -p1
+%patch33 -p1
+%patch34 -p1
+%patch35 -p1
+%patch36 -p1
+%patch37 -p1
+%patch38 -p1
 
 # enable RealSense on uvc
 %patch70 -p1
