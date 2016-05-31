@@ -57,6 +57,11 @@ Patch36: 3006-cpuidle-menu-help-gcc-generate-slightly-better-code.patch
 Patch37: 3007-cpuidle-menu-use-high-confidence-factors-only-when-c.patch
 Patch38: 3008-cpuidle-menu-Fall-back-to-polling-if-next-timer-even.patch
 
+# ads1015 + uvc drivers
+Patch40: 4000-iio-adc-Add-TI-ADS1015-ADC-driver-support.patch
+Patch41: 4001-uvc-driver-Add-support-for-F200-color-formats.patch
+Patch42: 4002-uvc-driver-Add-support-for-R200-color-formats.patch
+
 # enable RealSense on uvc
 Patch70:  7000-Script-for-building-uvcvideo.ko.patch
 
@@ -94,6 +99,7 @@ Linux kernel extra files
 # i2c designware do not disable adapter after transfer
 %patch22 -p1
 
+# cpuidle's governors set
 %patch30 -p1
 %patch31 -p1
 %patch32 -p1
@@ -103,6 +109,11 @@ Linux kernel extra files
 %patch36 -p1
 %patch37 -p1
 %patch38 -p1
+
+# ads1015 + uvc drivers
+%patch40 -p1
+%patch41 -p1
+%patch42 -p1
 
 # enable RealSense on uvc
 %patch70 -p1
