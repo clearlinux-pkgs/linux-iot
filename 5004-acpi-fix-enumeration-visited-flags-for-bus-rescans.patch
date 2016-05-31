@@ -1,0 +1,77 @@
+From 138fd52a6472908ed477d78cdcc951640e969b26 Mon Sep 17 00:00:00 2001
+From: Octavian Purdila <octavian.purdila@intel.com>
+Date: Wed, 20 Apr 2016 01:39:01 +0300
+Subject: [PATCH 23/30] acpi: fix enumeration (visited) flags for bus rescans
+
+If the ACPI tables changes as a result of a dinamically loaded table and
+a bus rescan is required the enumeration/visited flag are not
+consistent.
+
+I2C/SPI are not directly enumerated in acpi_bus_attach(), however the
+visited flag is set. This makes it impossible to check if an ACPI device
+has already been enumerated by the I2C and SPI subsystems. To fix this
+issue we only set the visited flags if the device is not I2C or SPI.
+
+With this change we also need to remove setting visited to false from
+acpi_bus_attach(), otherwise if we rescan already enumerated I2C/SPI
+devices we try to re-enumerate them.
+
+Signed-off-by: Octavian Purdila <octavian.purdila@intel.com>
+---
+ drivers/acpi/scan.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+index 78d5f02..a72225f 100644
+--- a/drivers/acpi/scan.c
++++ b/drivers/acpi/scan.c
+@@ -1662,7 +1662,7 @@ static int acpi_check_spi_i2c_slave(struct acpi_resource *ares, void *data)
+ 	return -1;
+ }
+ 
+-static void acpi_default_enumeration(struct acpi_device *device)
++static bool acpi_default_enumeration(struct acpi_device *device)
+ {
+ 	struct list_head resource_list;
+ 	bool is_spi_i2c_slave = false;
+@@ -1677,6 +1677,7 @@ static void acpi_default_enumeration(struct acpi_device *device)
+ 	acpi_dev_free_resource_list(&resource_list);
+ 	if (!is_spi_i2c_slave)
+ 		acpi_create_platform_device(device);
++	return !is_spi_i2c_slave;
+ }
+ 
+ static const struct acpi_device_id generic_device_ids[] = {
+@@ -1736,6 +1737,7 @@ static void acpi_bus_attach(struct acpi_device *device)
+ 	struct acpi_device *child;
+ 	acpi_handle ejd;
+ 	int ret;
++	bool enumerated = true;
+ 
+ 	if (ACPI_SUCCESS(acpi_bus_get_ejd(device->handle, &ejd)))
+ 		register_dock_dependent_device(device, ejd);
+@@ -1758,7 +1760,7 @@ static void acpi_bus_attach(struct acpi_device *device)
+ 
+ 		device->flags.initialized = true;
+ 	}
+-	device->flags.visited = false;
++
+ 	ret = acpi_scan_attach_handler(device);
+ 	if (ret < 0)
+ 		return;
+@@ -1770,9 +1772,10 @@ static void acpi_bus_attach(struct acpi_device *device)
+ 			return;
+ 
+ 		if (!ret && device->pnp.type.platform_id)
+-			acpi_default_enumeration(device);
++			enumerated = acpi_default_enumeration(device);
+ 	}
+-	device->flags.visited = true;
++	if (enumerated)
++		device->flags.visited = true;
+ 
+  ok:
+ 	list_for_each_entry(child, &device->children, node)
+-- 
+2.8.3
+

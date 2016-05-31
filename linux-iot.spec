@@ -62,6 +62,22 @@ Patch40: 4000-iio-adc-Add-TI-ADS1015-ADC-driver-support.patch
 Patch41: 4001-uvc-driver-Add-support-for-F200-color-formats.patch
 Patch42: 4002-uvc-driver-Add-support-for-R200-color-formats.patch
 
+# ACPI overlay
+Patch5000: 5000-ACPI-OSL-Clean-up-initrd-table-override-code.patch
+Patch5001: 5001-ACPI-OSL-Add-support-to-install-tables-via-initrd.patch
+Patch5002: 5002-kernel-add-TAINT_OVERLAY_ACPI_TABLE.patch
+Patch5003: 5003-acpi-decouple-initrd-table-install-from-CONFIG_ACPI_.patch
+Patch5004: 5004-acpi-fix-enumeration-visited-flags-for-bus-rescans.patch
+Patch5005: 5005-acpi-add-support-for-ACPI-reconfiguration-notifiers.patch
+Patch5006: 5006-i2c-add-support-for-ACPI-reconfigure-notifications.patch
+Patch5007: 5007-spi-add-support-for-ACPI-reconfigure-notifications.patch
+Patch5008: 5008-efi-load-SSTDs-from-EFI-variables.patch
+Patch5009: 5009-acpi-add-support-for-configfs.patch
+Patch5010: 5010-acpi-add-support-for-loading-SSDTs-via-configfs.patch
+Patch5011: 5011-HACK-acpi-configfs-add-unload_hanlde_path-attribute-.patch
+Patch5012: 5012-configfs-implement-binary-attributes.patch
+Patch5013: 5013-configfs-fix-CONFIGFS_BIN_ATTR_-RW-O-definitions.patch
+
 # enable RealSense on uvc
 Patch70:  7000-Script-for-building-uvcvideo.ko.patch
 
@@ -114,6 +130,22 @@ Linux kernel extra files
 %patch40 -p1
 %patch41 -p1
 %patch42 -p1
+
+# ACPI overlay
+%patch5000 -p1
+%patch5001 -p1
+%patch5002 -p1
+%patch5003 -p1
+%patch5004 -p1
+%patch5005 -p1
+%patch5006 -p1
+%patch5007 -p1
+%patch5008 -p1
+%patch5009 -p1
+%patch5010 -p1
+%patch5011 -p1
+%patch5012 -p1
+%patch5013 -p1
 
 # enable RealSense on uvc
 %patch70 -p1

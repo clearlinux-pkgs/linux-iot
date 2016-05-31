@@ -1,0 +1,39 @@
+From 96c22a3293512ba684e73a981196430f524689da Mon Sep 17 00:00:00 2001
+From: Octavian Purdila <octavian.purdila@intel.com>
+Date: Wed, 23 Mar 2016 14:14:48 +0200
+Subject: [PATCH] configfs: fix CONFIGFS_BIN_ATTR_[RW]O definitions
+
+The type should be struct configfs_bin_attribute and not struct
+configfs_attribute.
+
+Signed-off-by: Octavian Purdila <octavian.purdila@intel.com>
+Signed-off-by: Christoph Hellwig <hch@lst.de>
+---
+ include/linux/configfs.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/include/linux/configfs.h b/include/linux/configfs.h
+index 485fe55..d9d6a9d 100644
+--- a/include/linux/configfs.h
++++ b/include/linux/configfs.h
+@@ -188,7 +188,7 @@ static struct configfs_bin_attribute _pfx##attr_##_name = {	\
+ }
+ 
+ #define CONFIGFS_BIN_ATTR_RO(_pfx, _name, _priv, _maxsz)	\
+-static struct configfs_attribute _pfx##attr_##_name = {		\
++static struct configfs_bin_attribute _pfx##attr_##_name = {	\
+ 	.cb_attr = {						\
+ 		.ca_name	= __stringify(_name),		\
+ 		.ca_mode	= S_IRUGO,			\
+@@ -200,7 +200,7 @@ static struct configfs_attribute _pfx##attr_##_name = {		\
+ }
+ 
+ #define CONFIGFS_BIN_ATTR_WO(_pfx, _name, _priv, _maxsz)	\
+-static struct configfs_attribute _pfx##attr_##_name = {		\
++static struct configfs_bin_attribute _pfx##attr_##_name = {	\
+ 	.cb_attr = {						\
+ 		.ca_name	= __stringify(_name),		\
+ 		.ca_mode	= S_IWUSR,			\
+-- 
+2.8.3
+
