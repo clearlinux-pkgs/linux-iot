@@ -1,11 +1,11 @@
 Name:           linux-iot
-Version:        4.4.11
+Version:        4.4.12
 Release:        9
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.11.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.12.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -63,7 +63,7 @@ Linux kernel extra files
 
 
 %prep
-%setup -q -n linux-4.4.11
+%setup -q -n linux-4.4.12
 
 %patch1 -p1
 %patch2 -p1
