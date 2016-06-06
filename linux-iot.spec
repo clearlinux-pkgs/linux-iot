@@ -1,6 +1,6 @@
 Name:           linux-iot
 Version:        4.4.12
-Release:        10
+Release:        11
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
