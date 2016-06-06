@@ -78,9 +78,6 @@ Patch5011: 5011-HACK-acpi-configfs-add-unload_hanlde_path-attribute-.patch
 Patch5012: 5012-configfs-implement-binary-attributes.patch
 Patch5013: 5013-configfs-fix-CONFIGFS_BIN_ATTR_-RW-O-definitions.patch
 
-# enable RealSense on uvc
-Patch70:  7000-Script-for-building-uvcvideo.ko.patch
-
 %description
 The Linux kernel for iot cases.
 
@@ -146,9 +143,6 @@ Linux kernel extra files
 %patch5011 -p1
 %patch5012 -p1
 %patch5013 -p1
-
-# enable RealSense on uvc
-%patch70 -p1
 
 cp %{SOURCE1} .
 
