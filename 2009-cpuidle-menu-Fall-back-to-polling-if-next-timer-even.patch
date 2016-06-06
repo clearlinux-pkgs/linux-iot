@@ -1,0 +1,66 @@
+From 24e2f0ba51cad06a398bc0d4e451a3b9f57787f5 Mon Sep 17 00:00:00 2001
+From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+Date: Sun, 20 Mar 2016 01:33:35 +0100
+Subject: [PATCH 2009/2009] cpuidle: menu: Fall back to polling if next timer
+ event is near
+
+Commit a9ceb78bc75c (cpuidle,menu: use interactivity_req to disable
+polling) changed the behavior of the fallback state selection part
+of menu_select() so it looks at interactivity_req instead of
+data->next_timer_us when it makes its decision.  That effectively
+caused polling to be used more often as fallback idle which led to
+significant increases of energy consumption in some cases.
+
+Commit e132b9b3bc7f (cpuidle: menu: use high confidence factors
+only when considering polling) changed that logic again to be more
+predictable, but that didn't help with the increased energy
+consumption problem.
+
+For this reason, go back to making decisions on which state to fall
+back to based on data->next_timer_us which is the time we know for
+sure something will happen rather than a prediction (which may be
+inaccurate and turns out to be so often enough to be problematic).
+However, take the target residency of the first proper idle state
+(C1) into account, so that state is not used as the fallback one
+if its target residency is greater than data->next_timer_us.
+
+Fixes: a9ceb78bc75c (cpuidle,menu: use interactivity_req to disable polling)
+Signed-off-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+Reported-and-tested-by: Doug Smythies <dsmythies@telus.net>
+---
+ drivers/cpuidle/governors/menu.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/cpuidle/governors/menu.c b/drivers/cpuidle/governors/menu.c
+index 00c5f89..03d38c2 100644
+--- a/drivers/cpuidle/governors/menu.c
++++ b/drivers/cpuidle/governors/menu.c
+@@ -315,17 +315,21 @@ static int menu_select(struct cpuidle_driver *drv, struct cpuidle_device *dev)
+ 	expected_interval = min(expected_interval, data->next_timer_us);
+ 
+ 	if (CPUIDLE_DRIVER_STATE_START > 0) {
+-		data->last_state_idx = CPUIDLE_DRIVER_STATE_START - 1;
++		struct cpuidle_state *s = &drv->states[CPUIDLE_DRIVER_STATE_START];
++		unsigned int polling_threshold;
++
+ 		/*
+ 		 * We want to default to C1 (hlt), not to busy polling
+ 		 * unless the timer is happening really really soon, or
+ 		 * C1's exit latency exceeds the user configured limit.
+ 		 */
+-		if (expected_interval > drv->states[CPUIDLE_DRIVER_STATE_START].target_residency &&
+-		    latency_req > drv->states[CPUIDLE_DRIVER_STATE_START].exit_latency &&
+-		    !drv->states[CPUIDLE_DRIVER_STATE_START].disabled &&
++		polling_threshold = max_t(unsigned int, 20, s->target_residency);
++		if (data->next_timer_us > polling_threshold &&
++		    latency_req > s->exit_latency && !s->disabled &&
+ 		    !dev->states_usage[CPUIDLE_DRIVER_STATE_START].disable)
+ 			data->last_state_idx = CPUIDLE_DRIVER_STATE_START;
++		else
++			data->last_state_idx = CPUIDLE_DRIVER_STATE_START - 1;
+ 	} else {
+ 		data->last_state_idx = CPUIDLE_DRIVER_STATE_START;
+ 	}
+-- 
+2.8.2
+

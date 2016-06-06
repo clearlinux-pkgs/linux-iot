@@ -1,0 +1,118 @@
+From dbee79c456288d216ad798c7ea25a540282cc2db Mon Sep 17 00:00:00 2001
+From: Octavian Purdila <octavian.purdila@intel.com>
+Date: Wed, 20 Apr 2016 01:39:08 +0300
+Subject: [PATCH 4012/4014] HACK: acpi: configfs: add unload_hanlde_path
+ attribute for tables
+
+Because there is no way to get a references to a table that we can use
+to unload a table this patch adds an attribute allows the user to attach
+a path to an ACPI handle to be used when unloading the table. The ACPI
+handle must have been loaded with the table to which attribute is part
+of, otherwise the unload operation will not be correct.
+
+This patch should only be used to test table unloading and removal of
+associated ACPI devices and should not be merged. Once the new table
+loading/unloading APIs make it in ACPICA we can implement table
+unloading properly.
+
+Signed-off-by: Octavian Purdila <octavian.purdila@intel.com>
+---
+ drivers/acpi/configfs.c | 58 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 58 insertions(+)
+
+diff --git a/drivers/acpi/configfs.c b/drivers/acpi/configfs.c
+index 5efa8ca..7bcdfbb 100644
+--- a/drivers/acpi/configfs.c
++++ b/drivers/acpi/configfs.c
+@@ -18,6 +18,7 @@ static struct config_group *acpi_table_group;
+ struct acpi_user_table {
+ 	struct config_item cfg;
+ 	struct acpi_table_header *table;
++	acpi_handle handle;
+ };
+ 
+ static ssize_t acpi_table_data_write(struct config_item *cfg,
+@@ -65,14 +66,59 @@ static ssize_t acpi_table_data_write(struct config_item *cfg,
+ 
+ CONFIGFS_BIN_ATTR_WO(acpi_table_, data, NULL, MAX_ACPI_TABLE_SIZE);
+ 
++ssize_t acpi_table_unload_handle_path_show(struct config_item *item, char *page)
++{
++	struct acpi_buffer path = {ACPI_ALLOCATE_BUFFER, NULL};
++	struct acpi_user_table *table;
++	int ret;
++
++	table = container_of(item, struct acpi_user_table, cfg);
++
++	ret = acpi_get_name(table->handle, ACPI_FULL_PATHNAME, &path);
++	if (ret)
++		return ret;
++
++	ret = sprintf(page, "%s\n", (char *)path.pointer);
++	kfree(path.pointer);
++
++	return ret;
++}
++
++ssize_t acpi_table_unload_handle_path_store(struct config_item *item,
++					    const char *page, size_t count)
++{
++	struct acpi_user_table *table;
++	char *str;
++
++	table = container_of(item, struct acpi_user_table, cfg);
++
++	str = kmalloc(count + 1, GFP_KERNEL);
++	memcpy(str, page, count);
++	str[count] = 0;
++
++	acpi_get_handle(NULL, strim(str), &table->handle);
++
++	kfree(str);
++
++	return count;
++}
++
++CONFIGFS_ATTR(acpi_table_, unload_handle_path);
++
+ struct configfs_bin_attribute *acpi_table_bin_attrs[] = {
+ 	&acpi_table_attr_data,
+ 	NULL,
+ };
+ 
++struct configfs_attribute *acpi_table_attrs[] = {
++	&acpi_table_attr_unload_handle_path,
++	NULL,
++};
++
+ static struct config_item_type acpi_table_type = {
+ 	.ct_owner = THIS_MODULE,
+ 	.ct_bin_attrs = acpi_table_bin_attrs,
++	.ct_attrs = acpi_table_attrs,
+ };
+ 
+ static struct config_item *acpi_table_make_item(struct config_group *group,
+@@ -88,8 +134,20 @@ static struct config_item *acpi_table_make_item(struct config_group *group,
+ 	return &table->cfg;
+ }
+ 
++static void acpi_table_drop_item(struct config_group *group,
++				 struct config_item *item)
++{
++	struct acpi_user_table *table;
++
++	table = container_of(item, struct acpi_user_table, cfg);
++
++	if (table->handle)
++		acpi_unload_parent_table(table->handle);
++}
++
+ struct configfs_group_operations acpi_table_group_ops = {
+ 	.make_item = acpi_table_make_item,
++	.drop_item = acpi_table_drop_item,
+ };
+ 
+ static struct config_item_type acpi_tables_type = {
+-- 
+2.8.2
+
