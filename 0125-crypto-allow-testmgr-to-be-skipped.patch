@@ -1,0 +1,25 @@
+From d47955d8449faa8c946ea25995b538c5dca3dd95 Mon Sep 17 00:00:00 2001
+From: Arjan van de Ven <arjan@linux.intel.com>
+Date: Thu, 16 Jun 2016 15:29:34 +0000
+Subject: [PATCH 117/117] crypto: allow testmgr to be skipped
+
+---
+ crypto/testmgr.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/crypto/testmgr.c b/crypto/testmgr.c
+index c727fb0..2e0ee71 100644
+--- a/crypto/testmgr.c
++++ b/crypto/testmgr.c
+@@ -35,7 +35,7 @@
+ 
+ #include "internal.h"
+ 
+-static bool notests;
++static bool notests = true;
+ module_param(notests, bool, 0644);
+ MODULE_PARM_DESC(notests, "disable crypto self-tests");
+ 
+-- 
+2.9.0
+

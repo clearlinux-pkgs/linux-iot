@@ -64,6 +64,7 @@ Patch0121: 0121-Initialize-ata-before-graphics.patch
 Patch0122: 0122-reduce-e1000e-boot-time-by-tightening-sleep-ranges.patch
 Patch0123: 0123-xor-skip-benchmark-allocations-for-short-circuit-pat.patch
 Patch0124: 0124-input-i8042-Fix-console-keyboard-support-on-Gen2-Hyp.patch
+Patch0125: 0125-crypto-allow-testmgr-to-be-skipped.patch
 
 # Minnowboard stuff
 Patch1001: 1001-Add-low-speed-spidev-module.patch
@@ -154,6 +155,7 @@ Linux kernel extra files
 %patch0122 -p1
 %patch0123 -p1
 %patch0124 -p1
+%patch0125 -p1
 
 # Minnowboard stuff
 %patch1001 -p1
