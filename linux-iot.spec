@@ -1,3 +1,8 @@
+#
+# This is a special configuration of the Linux kernel, based on linux package
+# for long-term support for iot
+#
+
 Name:           linux-iot
 Version:        4.4.15
 Release:        14
@@ -13,9 +18,7 @@ Source2:        cmdline
 
 BuildRequires:  bash >= 2.03
 BuildRequires:  bc
-# For bfd support in perf/trace
 BuildRequires:  binutils-dev
-BuildRequires:  elfutils
 BuildRequires:  elfutils-dev
 BuildRequires:  kmod
 BuildRequires:  make >= 3.78
@@ -209,8 +212,7 @@ BuildKernel() {
     cp config .config
 
     make -s ARCH=$Arch oldconfig > /dev/null
-    make -s CONFIG_DEBUG_SECTION_MISMATCH=y %{?_smp_mflags} ARCH=$Arch $MakeTarget %{?sparse_mflags}
-    make -s CONFIG_DEBUG_SECTION_MISMATCH=y %{?_smp_mflags} ARCH=$Arch modules %{?sparse_mflags} || exit 1
+    make -s CONFIG_DEBUG_SECTION_MISMATCH=y %{?_smp_mflags} ARCH=$Arch %{?sparse_mflags}
 }
 
 BuildKernel bzImage
