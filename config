@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 4.4.15 Kernel Configuration
+# Linux/x86 4.4.16 Kernel Configuration
 #
 CONFIG_64BIT=y
 CONFIG_X86_64=y
@@ -614,6 +614,7 @@ CONFIG_ACPI_APEI=y
 # CONFIG_ACPI_APEI_ERST_DEBUG is not set
 # CONFIG_ACPI_EXTLOG is not set
 # CONFIG_PMIC_OPREGION is not set
+CONFIG_ACPI_CONFIGFS=m
 # CONFIG_SFI is not set
 
 #
