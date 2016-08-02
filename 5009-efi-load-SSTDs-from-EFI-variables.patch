@@ -1,7 +1,7 @@
-From 5ca47cc1e939e74d200195d7360a0758b945313a Mon Sep 17 00:00:00 2001
+From d0d10a355d4a394d8544967ed88f131ad20bb3b2 Mon Sep 17 00:00:00 2001
 From: Octavian Purdila <octavian.purdila@intel.com>
 Date: Wed, 20 Apr 2016 01:39:05 +0300
-Subject: [PATCH 4009/4014] efi: load SSTDs from EFI variables
+Subject: [PATCH 5009/5014] efi: load SSTDs from EFI variables
 
 This patch allows SSDTs to be loaded from EFI variables. It works by
 specifying the EFI variable name containing the SSDT to be loaded. All
@@ -97,10 +97,10 @@ index c328f6a..27f8108 100644
 +dd if=$tmp of="$EFIVARFS/$name-$guid" bs=$(stat -c %s $tmp)
 +rm $tmp
 diff --git a/Documentation/kernel-parameters.txt b/Documentation/kernel-parameters.txt
-index 0e4102a..36f0f8d 100644
+index d6a6674..446ca6e 100644
 --- a/Documentation/kernel-parameters.txt
 +++ b/Documentation/kernel-parameters.txt
-@@ -1126,6 +1126,13 @@ bytes respectively. Such letter suffixes can also be entirely omitted.
+@@ -1129,6 +1129,13 @@ bytes respectively. Such letter suffixes can also be entirely omitted.
  			Address Range Mirroring feature even if your box
  			doesn't support it.
  
@@ -249,5 +249,5 @@ index 3b52677..d9d0829 100644
  	if (error) {
  		pr_err("efi: Sysfs attribute export failed with error %d.\n",
 -- 
-2.8.2
+2.9.1
 

@@ -1,7 +1,7 @@
-From 85d51892913108800d5cd486908e2bba70c1a077 Mon Sep 17 00:00:00 2001
+From b07603359ff20cb10e34a2e2a68bfd05cc4a2db5 Mon Sep 17 00:00:00 2001
 From: Rasmus Villemoes <linux@rasmusvillemoes.dk>
 Date: Tue, 16 Feb 2016 20:19:18 +0100
-Subject: [PATCH 2006/2009] cpuidle: menu: avoid expensive square root
+Subject: [PATCH 3006/3009] cpuidle: menu: avoid expensive square root
  computation
 
 Computing the integer square root is a rather expensive operation, at
@@ -90,5 +90,5 @@ index 0742b32..beef7ae 100644
  				data->predicted_us = avg;
  			return;
 -- 
-2.8.2
+2.9.1
 

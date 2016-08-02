@@ -1,7 +1,7 @@
-From 836729f18c1d1d569877b095494120c701bb1054 Mon Sep 17 00:00:00 2001
+From e1a8e17199386b105c20eaf891afe1c8a122accc Mon Sep 17 00:00:00 2001
 From: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
 Date: Sat, 10 Oct 2015 11:38:35 -0500
-Subject: [PATCH 1001/1003] Add low-speed-spidev module
+Subject: [PATCH 2001/2003] Add low-speed-spidev module
 
 Signed-off-by: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
 ---
@@ -13,7 +13,7 @@ Signed-off-by: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
  create mode 100644 drivers/spi/lsspidev/low-speed-spidev.c
 
 diff --git a/drivers/Makefile b/drivers/Makefile
-index 795d0ca..a7a2af7 100644
+index 7209950..3a8b62e 100644
 --- a/drivers/Makefile
 +++ b/drivers/Makefile
 @@ -7,6 +7,7 @@
@@ -121,5 +121,5 @@ index 0000000..9bdb9ff
 +
 +MODULE_LICENSE("GPL");
 -- 
-2.8.2
+2.9.1
 

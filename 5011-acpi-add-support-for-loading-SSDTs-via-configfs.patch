@@ -1,7 +1,7 @@
-From 0e70d20b92e59495d9d65dec6c4eb5ca47ff8667 Mon Sep 17 00:00:00 2001
+From f275d09f2ffb5213a560d57ef30ca8af08004aea Mon Sep 17 00:00:00 2001
 From: Octavian Purdila <octavian.purdila@intel.com>
 Date: Wed, 20 Apr 2016 01:39:07 +0300
-Subject: [PATCH 4011/4014] acpi: add support for loading SSDTs via configfs
+Subject: [PATCH 5011/5014] acpi: add support for loading SSDTs via configfs
 
 Add support for acpi_user_table configfs items that allows the user to
 load new tables. The data attributes contains the table data and once it
@@ -188,5 +188,5 @@ index 96aa3d8..5efa8ca 100644
  }
  module_exit(acpi_configfs_exit);
 -- 
-2.8.2
+2.9.1
 

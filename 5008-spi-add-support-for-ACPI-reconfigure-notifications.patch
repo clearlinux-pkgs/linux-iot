@@ -1,7 +1,7 @@
-From eaccb4c01da1cafc2ac1526d3ebbe5abd187759d Mon Sep 17 00:00:00 2001
+From bf118dede8556711275e9a7ee1519da451be689a Mon Sep 17 00:00:00 2001
 From: Octavian Purdila <octavian.purdila@intel.com>
 Date: Wed, 20 Apr 2016 01:39:04 +0300
-Subject: [PATCH 4008/4014] spi: add support for ACPI reconfigure notifications
+Subject: [PATCH 5008/5014] spi: add support for ACPI reconfigure notifications
 
 This patch adds supports for SPI device enumeration and removal via
 ACPI reconfiguration notifications that are send as a result of an
@@ -151,5 +151,5 @@ index dee1cb8..eff0a3f 100644
  	return 0;
  
 -- 
-2.8.2
+2.9.1
 

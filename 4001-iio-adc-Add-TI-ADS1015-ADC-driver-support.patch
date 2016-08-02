@@ -1,7 +1,7 @@
-From e80f2d1443a5225a2848bdf07d3fc0c9e28d510d Mon Sep 17 00:00:00 2001
+From 3fcab132d8117753f832703e17e385379c39eb27 Mon Sep 17 00:00:00 2001
 From: Daniel Baluta <daniel.baluta@intel.com>
 Date: Thu, 11 Feb 2016 15:49:54 +0200
-Subject: [PATCH 3001/3003] iio: adc: Add TI ADS1015 ADC driver support
+Subject: [PATCH 4001/4003] iio: adc: Add TI ADS1015 ADC driver support
 
 The driver has sysfs readings with runtime PM support for power saving.
 It also offers buffer support that can be used together with IIO software
@@ -674,5 +674,5 @@ index 0000000..73cbf0b
 +MODULE_DESCRIPTION("Texas Instruments ADS1015 ADC driver");
 +MODULE_LICENSE("GPL v2");
 -- 
-2.8.2
+2.9.1
 

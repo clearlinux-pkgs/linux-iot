@@ -1,7 +1,7 @@
-From 941cb7cfe0024516517e813f46c9d43952ffe7dc Mon Sep 17 00:00:00 2001
+From 62509ad205573035395d32933aadf199aaf28191 Mon Sep 17 00:00:00 2001
 From: Octavian Purdila <octavian.purdila@intel.com>
 Date: Wed, 20 Apr 2016 01:39:06 +0300
-Subject: [PATCH 4010/4014] acpi: add support for configfs
+Subject: [PATCH 5010/5014] acpi: add support for configfs
 
 Register the ACPI subsystem with configfs.
 
@@ -116,5 +116,5 @@ index 0000000..96aa3d8
 +MODULE_DESCRIPTION("ACPI configfs support");
 +MODULE_LICENSE("GPL v2");
 -- 
-2.8.2
+2.9.1
 

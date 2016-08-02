@@ -1,7 +1,7 @@
-From 9a3ce31f42849e241962127e41ada491b6db2892 Mon Sep 17 00:00:00 2001
+From 59332e83100e525bb3f2fa33d69a196b77f14ce3 Mon Sep 17 00:00:00 2001
 From: Lucas De Marchi <lucas.demarchi@intel.com>
 Date: Thu, 31 Mar 2016 22:48:16 -0500
-Subject: [PATCH 1003/1003] i2c: designware: do not disable adapter after
+Subject: [PATCH 2003/2003] i2c: designware: do not disable adapter after
  transfer
 
 Disabling the adapter after each transfer is pretty bad for sensors and
@@ -144,5 +144,5 @@ index de7fbbb..bce7af4 100644
  		stat = dw_readl(dev, DW_IC_INTR_MASK);
  		i2c_dw_disable_int(dev);
 -- 
-2.8.2
+2.9.1
 

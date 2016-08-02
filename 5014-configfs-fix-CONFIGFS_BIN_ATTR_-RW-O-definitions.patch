@@ -1,7 +1,7 @@
-From 8742df5c6b7c950775072473a334d96296e92e62 Mon Sep 17 00:00:00 2001
+From 883383a1e15f7c71883e93fea6fd7968c78f1310 Mon Sep 17 00:00:00 2001
 From: Octavian Purdila <octavian.purdila@intel.com>
 Date: Wed, 23 Mar 2016 14:14:48 +0200
-Subject: [PATCH 4014/4014] configfs: fix CONFIGFS_BIN_ATTR_[RW]O definitions
+Subject: [PATCH 5014/5014] configfs: fix CONFIGFS_BIN_ATTR_[RW]O definitions
 
 The type should be struct configfs_bin_attribute and not struct
 configfs_attribute.
@@ -35,5 +35,5 @@ index f7300d0..658066d 100644
  		.ca_name	= __stringify(_name),		\
  		.ca_mode	= S_IWUSR,			\
 -- 
-2.8.2
+2.9.1
 

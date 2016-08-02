@@ -1,7 +1,7 @@
-From dbee79c456288d216ad798c7ea25a540282cc2db Mon Sep 17 00:00:00 2001
+From 93d610b842f586624b2b169b83f7fe6d82c9cfa8 Mon Sep 17 00:00:00 2001
 From: Octavian Purdila <octavian.purdila@intel.com>
 Date: Wed, 20 Apr 2016 01:39:08 +0300
-Subject: [PATCH 4012/4014] HACK: acpi: configfs: add unload_hanlde_path
+Subject: [PATCH 5012/5014] HACK: acpi: configfs: add unload_hanlde_path
  attribute for tables
 
 Because there is no way to get a references to a table that we can use
@@ -114,5 +114,5 @@ index 5efa8ca..7bcdfbb 100644
  
  static struct config_item_type acpi_tables_type = {
 -- 
-2.8.2
+2.9.1
 

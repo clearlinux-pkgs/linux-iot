@@ -1,7 +1,7 @@
-From 0061c94ea118b05077923193250bee9711222b6e Mon Sep 17 00:00:00 2001
+From 850868582045e7f6f1593c56ad0b71b561aaaa26 Mon Sep 17 00:00:00 2001
 From: Rik van Riel <riel@redhat.com>
 Date: Wed, 16 Mar 2016 12:14:00 -0400
-Subject: [PATCH 2008/2009] cpuidle: menu: use high confidence factors only
+Subject: [PATCH 3008/3009] cpuidle: menu: use high confidence factors only
  when considering polling
 
 The menu governor uses five different factors to pick the
@@ -127,5 +127,5 @@ index 27fc733..00c5f89 100644
  	 * our constraints.
  	 */
 -- 
-2.8.2
+2.9.1
 

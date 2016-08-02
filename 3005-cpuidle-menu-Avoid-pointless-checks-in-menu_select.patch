@@ -1,7 +1,7 @@
-From 9df92c807d52685fb07c17fd22fe17e7516738ea Mon Sep 17 00:00:00 2001
+From 3298699abbf292c7514d5cacc8167be575ba3fe7 Mon Sep 17 00:00:00 2001
 From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
 Date: Sat, 16 Jan 2016 00:56:34 +0100
-Subject: [PATCH 2005/2009] cpuidle: menu: Avoid pointless checks in
+Subject: [PATCH 3005/3009] cpuidle: menu: Avoid pointless checks in
  menu_select()
 
 If menu_select() cannot find a suitable state to return, it will
@@ -34,5 +34,5 @@ index be0bae0..0742b32 100644
  		struct cpuidle_state_usage *su = &dev->states_usage[i];
  
 -- 
-2.8.2
+2.9.1
 

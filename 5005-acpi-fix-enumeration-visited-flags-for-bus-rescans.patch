@@ -1,7 +1,7 @@
-From a6ff902ff411f3e39832aa8e226b8181381b78b1 Mon Sep 17 00:00:00 2001
+From d4504d8e8c018617c903f4de8b3a64eb7b9d6d59 Mon Sep 17 00:00:00 2001
 From: Octavian Purdila <octavian.purdila@intel.com>
 Date: Wed, 20 Apr 2016 01:39:01 +0300
-Subject: [PATCH 4005/4014] acpi: fix enumeration (visited) flags for bus
+Subject: [PATCH 5005/5014] acpi: fix enumeration (visited) flags for bus
  rescans
 
 If the ACPI tables changes as a result of a dinamically loaded table and
@@ -74,5 +74,5 @@ index 78d5f02..a72225f 100644
   ok:
  	list_for_each_entry(child, &device->children, node)
 -- 
-2.8.2
+2.9.1
 

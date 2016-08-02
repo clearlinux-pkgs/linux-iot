@@ -32,10 +32,10 @@ BuildRequires:  bison
 %define __strip /bin/true
 
 # Serie    00XX: mainline, CVE, bugfixes patches
-Patch0001: 0001-crypto-testmgr-Add-a-flag-allowing-the-self-tests-to.patch
-Patch0002: cve-2016-4440.patch
-Patch0006: cve-2016-5243.patch
-Patch0007: cve-2016-5244.patch
+Patch0001: cve-2016-4440.patch
+Patch0002: cve-2016-5243.patch
+Patch0003: cve-2016-5243_fix.patch
+Patch0004: cve-2016-5244.patch
 
 # Serie    01XX: Clear Linux patches
 #Patch0101: 0101-init-don-t-wait-for-PS-2-at-boot.patch
@@ -62,48 +62,52 @@ Patch0121: 0121-Initialize-ata-before-graphics.patch
 Patch0122: 0122-reduce-e1000e-boot-time-by-tightening-sleep-ranges.patch
 Patch0123: 0123-xor-skip-benchmark-allocations-for-short-circuit-pat.patch
 Patch0124: 0124-input-i8042-Fix-console-keyboard-support-on-Gen2-Hyp.patch
-Patch0125: 0125-crypto-allow-testmgr-to-be-skipped.patch
+
+# Serie    XYYY: Extra features modules
+
+# Extra backported features
+Patch1001: 1001-crypto-testmgr-Add-a-flag-allowing-the-self-tests-to.patch
+Patch1002: 1002-crypto-allow-testmgr-to-be-skipped.patch
 
 # Minnowboard stuff
-Patch1001: 1001-Add-low-speed-spidev-module.patch
-Patch1002: 1002-Add-i2c-gpio-param-module.patch
-Patch1003: 1003-i2c-designware-do-not-disable-adapter-after-transfer.patch
+Patch2001: 2001-Add-low-speed-spidev-module.patch
+Patch2002: 2002-Add-i2c-gpio-param-module.patch
+Patch2003: 2003-i2c-designware-do-not-disable-adapter-after-transfer.patch
 
 # cpuidle's governors set
-Patch2001: 2001-cpuidle-x86-increase-forced-cut-off-for-polling-to-2.patch
-Patch2002: 2002-cpuidle-menu-use-interactivity_req-to-disable-pollin.patch
-Patch2003: 2003-cpuidle-menu-smooth-out-measured_us-calculation.patch
-Patch2004: 2004-cpuidle-menu-Fix-menu_select-for-CPUIDLE_DRIVER_STAT.patch
-Patch2005: 2005-cpuidle-menu-Avoid-pointless-checks-in-menu_select.patch
-Patch2006: 2006-cpuidle-menu-avoid-expensive-square-root-computation.patch
-Patch2007: 2007-cpuidle-menu-help-gcc-generate-slightly-better-code.patch
-Patch2008: 2008-cpuidle-menu-use-high-confidence-factors-only-when-c.patch
-Patch2009: 2009-cpuidle-menu-Fall-back-to-polling-if-next-timer-even.patch
+Patch3001: 3001-cpuidle-x86-increase-forced-cut-off-for-polling-to-2.patch
+Patch3002: 3002-cpuidle-menu-use-interactivity_req-to-disable-pollin.patch
+Patch3003: 3003-cpuidle-menu-smooth-out-measured_us-calculation.patch
+Patch3004: 3004-cpuidle-menu-Fix-menu_select-for-CPUIDLE_DRIVER_STAT.patch
+Patch3005: 3005-cpuidle-menu-Avoid-pointless-checks-in-menu_select.patch
+Patch3006: 3006-cpuidle-menu-avoid-expensive-square-root-computation.patch
+Patch3007: 3007-cpuidle-menu-help-gcc-generate-slightly-better-code.patch
+Patch3008: 3008-cpuidle-menu-use-high-confidence-factors-only-when-c.patch
+Patch3009: 3009-cpuidle-menu-Fall-back-to-polling-if-next-timer-even.patch
 
 # ads1015 + uvc drivers
-Patch3001: 3001-iio-adc-Add-TI-ADS1015-ADC-driver-support.patch
-Patch3002: 3002-uvc-driver-Add-support-for-F200-color-formats.patch
-Patch3003: 3003-uvc-driver-Add-support-for-R200-color-formats.patch
+Patch4001: 4001-iio-adc-Add-TI-ADS1015-ADC-driver-support.patch
+Patch4002: 4002-uvc-driver-Add-support-for-F200-color-formats.patch
+Patch4003: 4003-uvc-driver-Add-support-for-R200-color-formats.patch
 
 # ACPI overlay
-Patch4001: 4001-ACPI-OSL-Clean-up-initrd-table-override-code.patch
-Patch4002: 4002-ACPI-OSL-Add-support-to-install-tables-via-initrd.patch
-Patch4003: 4003-kernel-add-TAINT_OVERLAY_ACPI_TABLE.patch
-Patch4004: 4004-acpi-decouple-initrd-table-install-from-CONFIG_ACPI_.patch
-Patch4005: 4005-acpi-fix-enumeration-visited-flags-for-bus-rescans.patch
-Patch4006: 4006-acpi-add-support-for-ACPI-reconfiguration-notifiers.patch
-Patch4007: 4007-i2c-add-support-for-ACPI-reconfigure-notifications.patch
-Patch4008: 4008-spi-add-support-for-ACPI-reconfigure-notifications.patch
-Patch4009: 4009-efi-load-SSTDs-from-EFI-variables.patch
-Patch4010: 4010-acpi-add-support-for-configfs.patch
-Patch4011: 4011-acpi-add-support-for-loading-SSDTs-via-configfs.patch
-Patch4012: 4012-HACK-acpi-configfs-add-unload_hanlde_path-attribute-.patch
-Patch4013: 4013-configfs-implement-binary-attributes.patch
-Patch4014: 4014-configfs-fix-CONFIGFS_BIN_ATTR_-RW-O-definitions.patch
+Patch5001: 5001-ACPI-OSL-Clean-up-initrd-table-override-code.patch
+Patch5002: 5002-ACPI-OSL-Add-support-to-install-tables-via-initrd.patch
+Patch5003: 5003-kernel-add-TAINT_OVERLAY_ACPI_TABLE.patch
+Patch5004: 5004-acpi-decouple-initrd-table-install-from-CONFIG_ACPI_.patch
+Patch5005: 5005-acpi-fix-enumeration-visited-flags-for-bus-rescans.patch
+Patch5006: 5006-acpi-add-support-for-ACPI-reconfiguration-notifiers.patch
+Patch5007: 5007-i2c-add-support-for-ACPI-reconfigure-notifications.patch
+Patch5008: 5008-spi-add-support-for-ACPI-reconfigure-notifications.patch
+Patch5009: 5009-efi-load-SSTDs-from-EFI-variables.patch
+Patch5010: 5010-acpi-add-support-for-configfs.patch
+Patch5011: 5011-acpi-add-support-for-loading-SSDTs-via-configfs.patch
+Patch5012: 5012-HACK-acpi-configfs-add-unload_hanlde_path-attribute-.patch
+Patch5013: 5013-configfs-implement-binary-attributes.patch
+Patch5014: 5014-configfs-fix-CONFIGFS_BIN_ATTR_-RW-O-definitions.patch
 
 %description
 The Linux kernel for iot cases.
-
 
 %package extra
 License:        GPL-2.0
@@ -120,8 +124,8 @@ Linux kernel extra files
 # Serie    00XX: mainline, CVE, bugfixes patches
 %patch0001 -p1
 %patch0002 -p1
-%patch0006 -p1
-%patch0007 -p1
+%patch0003 -p1
+%patch0004 -p1
 
 # Serie    01XX: Clear Linux patches
 #%patch0101 -p1
@@ -148,44 +152,49 @@ Linux kernel extra files
 %patch0122 -p1
 %patch0123 -p1
 %patch0124 -p1
-%patch0125 -p1
 
-# Minnowboard stuff
+# Serie    XYYY: Extra features modules
+
+# Extra backported features
 %patch1001 -p1
 %patch1002 -p1
-%patch1003 -p1
 
-# cpuidle's governors set
+# Minnowboard stuff
 %patch2001 -p1
 %patch2002 -p1
 %patch2003 -p1
-%patch2004 -p1
-%patch2005 -p1
-%patch2006 -p1
-%patch2007 -p1
-%patch2008 -p1
-%patch2009 -p1
 
-# ads1015 + uvc drivers
+# cpuidle's governors set
 %patch3001 -p1
 %patch3002 -p1
 %patch3003 -p1
+%patch3004 -p1
+%patch3005 -p1
+%patch3006 -p1
+%patch3007 -p1
+%patch3008 -p1
+%patch3009 -p1
 
-# ACPI overlay
+# ads1015 + uvc drivers
 %patch4001 -p1
 %patch4002 -p1
 %patch4003 -p1
-%patch4004 -p1
-%patch4005 -p1
-%patch4006 -p1
-%patch4007 -p1
-%patch4008 -p1
-%patch4009 -p1
-%patch4010 -p1
-%patch4011 -p1
-%patch4012 -p1
-%patch4013 -p1
-%patch4014 -p1
+
+# ACPI overlay
+%patch5001 -p1
+%patch5002 -p1
+%patch5003 -p1
+%patch5004 -p1
+%patch5005 -p1
+%patch5006 -p1
+%patch5007 -p1
+%patch5008 -p1
+%patch5009 -p1
+%patch5010 -p1
+%patch5011 -p1
+%patch5012 -p1
+%patch5013 -p1
+%patch5014 -p1
 
 cp %{SOURCE1} .
 
@@ -230,12 +239,9 @@ InstallKernel() {
     rm -f %{buildroot}/usr/lib/modules/$KernelVer/source
 }
 
-
 InstallKernel arch/x86/boot/bzImage
 
 rm -rf %{buildroot}/usr/lib/firmware
-
-
 
 # Erase some modules index and then re-crate them
 for i in alias ccwmap dep ieee1394map inputmap isapnpmap ofmap pcimap seriomap symbols usbmap softdep devname
@@ -258,7 +264,6 @@ ln -s org.clearlinux.iot.%{version}-%{release} %{buildroot}/usr/lib/kernel/defau
 /usr/lib/kernel/default-iot
 /usr/lib/modules/%{kversion}/kernel
 /usr/lib/modules/%{kversion}/modules.*
-
 
 %files extra
 %dir /usr/lib/kernel

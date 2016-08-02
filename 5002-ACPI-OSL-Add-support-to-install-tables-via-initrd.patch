@@ -1,7 +1,7 @@
-From a754d744c4eb3b14f5cc0f81def8e134bc9aa714 Mon Sep 17 00:00:00 2001
+From 3019ce8a516d31639277a4bc546c4e27eb22c174 Mon Sep 17 00:00:00 2001
 From: Lv Zheng <lv.zheng@intel.com>
 Date: Wed, 2 Mar 2016 14:16:25 +0800
-Subject: [PATCH 4002/4014] ACPI / OSL: Add support to install tables via
+Subject: [PATCH 5002/5014] ACPI / OSL: Add support to install tables via
  initrd
 
 This patch adds support to install tables from initrd.
@@ -149,5 +149,5 @@ index 6c0f079..57c0a45 100644
  	check_multiple_madt();
  	return 0;
 -- 
-2.8.2
+2.9.1
 

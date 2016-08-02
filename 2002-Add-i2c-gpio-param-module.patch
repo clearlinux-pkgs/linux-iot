@@ -1,7 +1,7 @@
-From b811f045ab71875093cb4ea44be39f7932086654 Mon Sep 17 00:00:00 2001
+From 380c719ac793e4dfe8ac315b8d3b6be2b16c15db Mon Sep 17 00:00:00 2001
 From: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
 Date: Tue, 20 Oct 2015 12:08:09 -0500
-Subject: [PATCH 1002/1003] Add i2c gpio param module
+Subject: [PATCH 2002/2003] Add i2c gpio param module
 
 Signed-off-by: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
 ---
@@ -13,10 +13,10 @@ Signed-off-by: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
  create mode 100644 drivers/i2c/i2c-gpio-param/i2c-gpio-param.c
 
 diff --git a/drivers/Makefile b/drivers/Makefile
-index a7a2af7..5966550 100644
+index 3a8b62e..c954067 100644
 --- a/drivers/Makefile
 +++ b/drivers/Makefile
-@@ -104,6 +104,7 @@ obj-$(CONFIG_GAMEPORT)		+= input/gameport/
+@@ -105,6 +105,7 @@ obj-$(CONFIG_GAMEPORT)		+= input/gameport/
  obj-$(CONFIG_INPUT)		+= input/
  obj-$(CONFIG_RTC_LIB)		+= rtc/
  obj-y				+= i2c/ media/
@@ -274,5 +274,5 @@ index 0000000..04f59d9
 +MODULE_DESCRIPTION("I2C-GPIO Driver");
 +MODULE_VERSION("0.3");
 -- 
-2.8.2
+2.9.1
 

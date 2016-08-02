@@ -1,7 +1,7 @@
-From a66bda9faa64cc160ed15f399099c35d90dcb3af Mon Sep 17 00:00:00 2001
+From ebe69341b625c0995cfd8089be6b718e7f12f95f Mon Sep 17 00:00:00 2001
 From: Rasmus Villemoes <linux@rasmusvillemoes.dk>
 Date: Tue, 16 Feb 2016 20:19:19 +0100
-Subject: [PATCH 2007/2009] cpuidle: menu: help gcc generate slightly better
+Subject: [PATCH 3007/3009] cpuidle: menu: help gcc generate slightly better
  code
 
 We know that the avg variable actually ends up holding a 32 bit
@@ -75,5 +75,5 @@ index beef7ae..27fc733 100644
  			if (data->next_timer_us > avg)
  				data->predicted_us = avg;
 -- 
-2.8.2
+2.9.1
 
