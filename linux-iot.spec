@@ -32,10 +32,9 @@ BuildRequires:  bison
 %define __strip /bin/true
 
 # Serie    00XX: mainline, CVE, bugfixes patches
-Patch0001: cve-2016-4440.patch
-Patch0002: cve-2016-5243.patch
-Patch0003: cve-2016-5243_fix.patch
-Patch0004: cve-2016-5244.patch
+Patch0001: cve-2016-5243.patch
+Patch0002: cve-2016-5243_fix.patch
+Patch0003: cve-2016-5244.patch
 
 # Serie    01XX: Clear Linux patches
 #Patch0101: 0101-init-don-t-wait-for-PS-2-at-boot.patch
@@ -125,7 +124,6 @@ Linux kernel extra files
 %patch0001 -p1
 %patch0002 -p1
 %patch0003 -p1
-%patch0004 -p1
 
 # Serie    01XX: Clear Linux patches
 #%patch0101 -p1
