@@ -1,4 +1,4 @@
-From ca7946e70ba3242e23765b03be23c19edf3c5969 Mon Sep 17 00:00:00 2001
+From ccc9838bb8a3ccac5db1d7a5f2508c6026a1ac84 Mon Sep 17 00:00:00 2001
 From: Octavian Purdila <octavian.purdila@intel.com>
 Date: Wed, 20 Apr 2016 01:38:59 +0300
 Subject: [PATCH 5003/5014] kernel: add TAINT_OVERLAY_ACPI_TABLE
@@ -145,5 +145,5 @@ index 41e2b54..4e3fe66 100644
   *	The string is overwritten by the next call to print_tainted().
   */
 -- 
-2.9.1
+2.9.2
 

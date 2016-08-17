@@ -1,4 +1,4 @@
-From 59332e83100e525bb3f2fa33d69a196b77f14ce3 Mon Sep 17 00:00:00 2001
+From 6349c9dbfb307c37627af83ccff8d4bc191e43f8 Mon Sep 17 00:00:00 2001
 From: Lucas De Marchi <lucas.demarchi@intel.com>
 Date: Thu, 31 Mar 2016 22:48:16 -0500
 Subject: [PATCH 2003/2003] i2c: designware: do not disable adapter after
@@ -144,5 +144,5 @@ index de7fbbb..bce7af4 100644
  		stat = dw_readl(dev, DW_IC_INTR_MASK);
  		i2c_dw_disable_int(dev);
 -- 
-2.9.1
+2.9.2
 

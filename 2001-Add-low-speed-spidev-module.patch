@@ -1,4 +1,4 @@
-From e1a8e17199386b105c20eaf891afe1c8a122accc Mon Sep 17 00:00:00 2001
+From 4bd85a6322138f652637f9b3837f897e91142cd9 Mon Sep 17 00:00:00 2001
 From: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
 Date: Sat, 10 Oct 2015 11:38:35 -0500
 Subject: [PATCH 2001/2003] Add low-speed-spidev module
@@ -121,5 +121,5 @@ index 0000000..9bdb9ff
 +
 +MODULE_LICENSE("GPL");
 -- 
-2.9.1
+2.9.2
 

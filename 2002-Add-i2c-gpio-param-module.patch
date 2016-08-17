@@ -1,4 +1,4 @@
-From 380c719ac793e4dfe8ac315b8d3b6be2b16c15db Mon Sep 17 00:00:00 2001
+From 5f8fca3d5624c4911a540cb0e0e7b6205fa84b35 Mon Sep 17 00:00:00 2001
 From: Mario Carrillo <mario.alfredo.c.arevalo@intel.com>
 Date: Tue, 20 Oct 2015 12:08:09 -0500
 Subject: [PATCH 2002/2003] Add i2c gpio param module
@@ -274,5 +274,5 @@ index 0000000..04f59d9
 +MODULE_DESCRIPTION("I2C-GPIO Driver");
 +MODULE_VERSION("0.3");
 -- 
-2.9.1
+2.9.2
 

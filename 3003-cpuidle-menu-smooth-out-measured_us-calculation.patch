@@ -1,4 +1,4 @@
-From c2c30e67887a5f727df4fc423169f849421ab673 Mon Sep 17 00:00:00 2001
+From 606f3aa30324f924c2aa43e14f061015cdbf5be0 Mon Sep 17 00:00:00 2001
 From: Rik van Riel <riel@redhat.com>
 Date: Tue, 3 Nov 2015 17:34:19 -0500
 Subject: [PATCH 3003/3009] cpuidle,menu: smooth out measured_us calculation
@@ -50,5 +50,5 @@ index b1a5573..7b0971d 100644
  	/* Make sure our coefficients do not exceed unity */
  	if (measured_us > data->next_timer_us)
 -- 
-2.9.1
+2.9.2
 

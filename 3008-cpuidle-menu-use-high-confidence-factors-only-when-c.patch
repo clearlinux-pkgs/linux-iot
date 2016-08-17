@@ -1,4 +1,4 @@
-From 850868582045e7f6f1593c56ad0b71b561aaaa26 Mon Sep 17 00:00:00 2001
+From e0b7ba46079ffaee3a471bd46cdee1879f5eea4b Mon Sep 17 00:00:00 2001
 From: Rik van Riel <riel@redhat.com>
 Date: Wed, 16 Mar 2016 12:14:00 -0400
 Subject: [PATCH 3008/3009] cpuidle: menu: use high confidence factors only
@@ -127,5 +127,5 @@ index 27fc733..00c5f89 100644
  	 * our constraints.
  	 */
 -- 
-2.9.1
+2.9.2
 

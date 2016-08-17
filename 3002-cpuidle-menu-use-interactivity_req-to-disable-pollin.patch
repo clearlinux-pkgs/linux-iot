@@ -1,4 +1,4 @@
-From 830b22b2ec8aef4833662a541feb64f7ca02f762 Mon Sep 17 00:00:00 2001
+From 9e88b049ab3cee70f7b7d21463212677b6e94ae5 Mon Sep 17 00:00:00 2001
 From: Rik van Riel <riel@redhat.com>
 Date: Tue, 3 Nov 2015 17:34:18 -0500
 Subject: [PATCH 3002/3009] cpuidle,menu: use interactivity_req to disable
@@ -40,5 +40,5 @@ index ecc242a..b1a5573 100644
  		dev->states_usage[CPUIDLE_DRIVER_STATE_START].disable == 0)
  		data->last_state_idx = CPUIDLE_DRIVER_STATE_START;
 -- 
-2.9.1
+2.9.2
 

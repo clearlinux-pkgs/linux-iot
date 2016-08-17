@@ -1,4 +1,4 @@
-From f275d09f2ffb5213a560d57ef30ca8af08004aea Mon Sep 17 00:00:00 2001
+From aa13b818e9cf912738b1696bb1f81d8a530ae8a2 Mon Sep 17 00:00:00 2001
 From: Octavian Purdila <octavian.purdila@intel.com>
 Date: Wed, 20 Apr 2016 01:39:07 +0300
 Subject: [PATCH 5011/5014] acpi: add support for loading SSDTs via configfs
@@ -188,5 +188,5 @@ index 96aa3d8..5efa8ca 100644
  }
  module_exit(acpi_configfs_exit);
 -- 
-2.9.1
+2.9.2
 

@@ -1,4 +1,4 @@
-From 08ca0525791cd73991432d3aca05d3ba75e90e0e Mon Sep 17 00:00:00 2001
+From 3c3cd04397f06b3001dffc83cdad1a6c27df0164 Mon Sep 17 00:00:00 2001
 From: Octavian Purdila <octavian.purdila@intel.com>
 Date: Wed, 20 Apr 2016 01:39:03 +0300
 Subject: [PATCH 5007/5014] i2c: add support for ACPI reconfigure notifications
@@ -266,5 +266,5 @@ index ba8eb08..188d2c4 100644
  		WARN_ON(of_reconfig_notifier_unregister(&i2c_of_notifier));
  	i2c_del_driver(&dummy_driver);
 -- 
-2.9.1
+2.9.2
 

@@ -1,4 +1,4 @@
-From 0bc20e40950898e503dfea1bdbb399c61c18af84 Mon Sep 17 00:00:00 2001
+From 208c7d132bc49793880926f926323136fe2d1ca7 Mon Sep 17 00:00:00 2001
 From: "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
 Date: Sun, 20 Mar 2016 01:33:35 +0100
 Subject: [PATCH 3009/3009] cpuidle: menu: Fall back to polling if next timer
@@ -62,5 +62,5 @@ index 00c5f89..03d38c2 100644
  		data->last_state_idx = CPUIDLE_DRIVER_STATE_START;
  	}
 -- 
-2.9.1
+2.9.2
 

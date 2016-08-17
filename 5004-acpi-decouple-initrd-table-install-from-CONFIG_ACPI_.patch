@@ -1,4 +1,4 @@
-From 311eeaab3058038e34ccc4160b205f785463656b Mon Sep 17 00:00:00 2001
+From ec8fedb2cbeb17fe0285fc7fbd8a5f524531e773 Mon Sep 17 00:00:00 2001
 From: Octavian Purdila <octavian.purdila@intel.com>
 Date: Wed, 20 Apr 2016 01:39:00 +0300
 Subject: [PATCH 5004/5014] acpi: decouple initrd table install from
@@ -259,5 +259,5 @@ index 1991aea..3d389bda 100644
  #define BAD_MADT_ENTRY(entry, end) (					    \
  		(!entry) || (unsigned long)entry + sizeof(*entry) > end ||  \
 -- 
-2.9.1
+2.9.2
 

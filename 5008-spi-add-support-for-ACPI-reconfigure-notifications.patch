@@ -1,4 +1,4 @@
-From bf118dede8556711275e9a7ee1519da451be689a Mon Sep 17 00:00:00 2001
+From 58ae8739a17238bf4595502bc5357abd2a6c033f Mon Sep 17 00:00:00 2001
 From: Octavian Purdila <octavian.purdila@intel.com>
 Date: Wed, 20 Apr 2016 01:39:04 +0300
 Subject: [PATCH 5008/5014] spi: add support for ACPI reconfigure notifications
@@ -151,5 +151,5 @@ index dee1cb8..eff0a3f 100644
  	return 0;
  
 -- 
-2.9.1
+2.9.2
 
