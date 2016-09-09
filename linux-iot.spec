@@ -60,7 +60,6 @@ Patch0120: 0120-raid6-add-Kconfig-option-to-skip-raid6-benchmarking.patch
 Patch0121: 0121-Initialize-ata-before-graphics.patch
 Patch0122: 0122-reduce-e1000e-boot-time-by-tightening-sleep-ranges.patch
 Patch0123: 0123-xor-skip-benchmark-allocations-for-short-circuit-pat.patch
-Patch0124: 0124-input-i8042-Fix-console-keyboard-support-on-Gen2-Hyp.patch
 
 # Serie    XYYY: Extra features modules
 
@@ -149,7 +148,6 @@ Linux kernel extra files
 %patch0121 -p1
 %patch0122 -p1
 %patch0123 -p1
-%patch0124 -p1
 
 # Serie    XYYY: Extra features modules
 
