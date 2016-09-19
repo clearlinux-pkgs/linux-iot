@@ -82,8 +82,8 @@ Patch3009: 3009-cpuidle-menu-Fall-back-to-polling-if-next-timer-even.patch
 
 # ads1015 + uvc drivers
 Patch4001: 4001-iio-adc-Add-TI-ADS1015-ADC-driver-support.patch
-Patch4002: 4002-uvc-driver-Add-support-for-F200-color-formats.patch
-Patch4003: 4003-uvc-driver-Add-support-for-R200-color-formats.patch
+#Patch4002: 4002-uvc-driver-Add-support-for-F200-color-formats.patch
+#Patch4003: 4003-uvc-driver-Add-support-for-R200-color-formats.patch
 
 # ACPI overlay
 Patch5001: 5001-ACPI-OSL-Clean-up-initrd-table-override-code.patch
@@ -167,8 +167,8 @@ Linux kernel extra files
 
 # ads1015 + uvc drivers
 %patch4001 -p1
-%patch4002 -p1
-%patch4003 -p1
+#%patch4002 -p1
+#%patch4003 -p1
 
 # ACPI overlay
 %patch5001 -p1
