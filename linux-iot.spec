@@ -4,13 +4,13 @@
 #
 
 Name:           linux-iot
-Version:        4.4.20
-Release:        18
+Version:        4.4.21
+Release:        19
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
 Group:          kernel
-Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.20.tar.xz
+Source0:        https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.4.21.tar.xz
 Source1:        config
 Source2:        cmdline
 
@@ -114,7 +114,7 @@ Linux kernel extra files
 
 
 %prep
-%setup -q -n linux-4.4.20
+%setup -q -n linux-4.4.21
 
 # Serie    00XX: mainline, CVE, bugfixes patches
 
