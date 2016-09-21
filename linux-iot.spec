@@ -5,7 +5,7 @@
 
 Name:           linux-iot
 Version:        4.4.21
-Release:        20
+Release:        21
 License:        GPL-2.0
 Summary:        The Linux kernel
 Url:            http://www.kernel.org/
@@ -36,9 +36,9 @@ BuildRequires:  bison
 # Serie    01XX: Clear Linux patches
 #Patch0101: 0101-init-don-t-wait-for-PS-2-at-boot.patch
 #Patch0102: 0102-sched-tweak-the-scheduler-to-favor-CPU-0.patch
-#Patch0103: 0103-kvm-silence-kvm-unhandled-rdmsr.patch
+Patch0103: 0103-kvm-silence-kvm-unhandled-rdmsr.patch
 Patch0104: 0104-i8042-decrease-debug-message-level-to-info.patch
-Patch0105: 0105-net-tcp-reduce-minimal-ack-time-down-from-40-msec.patch
+#Patch0105: 0105-net-tcp-reduce-minimal-ack-time-down-from-40-msec.patch
 Patch0106: 0106-init-do_mounts-recreate-dev-root.patch
 Patch0107: 0107-Increase-the-ext4-default-commit-age.patch
 Patch0108: 0108-silence-rapl.patch
@@ -121,9 +121,9 @@ Linux kernel extra files
 # Serie    01XX: Clear Linux patches
 #%patch0101 -p1
 #%patch0102 -p1
-#%patch0103 -p1
+%patch0103 -p1
 %patch0104 -p1
-%patch0105 -p1
+#%patch0105 -p1
 %patch0106 -p1
 %patch0107 -p1
 %patch0108 -p1
